@@ -19,6 +19,10 @@ const isActive = href === pathname || href === '/' + (subpath?.[0] || '');
 	}
 	a.active {
 		font-weight: bolder;
-		text-decoration: underline;
+		/* text-decoration: underline; */
+		background-image: url(/public/images/box.svg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		border-bottom: 2px solid var(--color-dark);
 	}
 </style>

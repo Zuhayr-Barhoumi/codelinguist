@@ -3,69 +3,6 @@
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
-
-:root {
-  --accent: #2337ff;
-  --accent-dark: #000d8a;
-  --black: 15, 18, 25;
-  --gray: 96, 115, 159;
-  --gray-light: 229, 233, 240;
-  --gray-dark: 34, 41, 57;
-  --gray-gradient: rgba(var(--gray-light), 50%), #fff;
-  --box-shadow: 0 2px 6px rgba(var(--gray), 25%),
-    0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%);
-
-  /* CUSTOM VARIABLES*/
-  /* Colors */
-  --color-primary: rgb(246, 230, 213); /* #f6e6d5 */
-  --color-secondary: rgb(84, 44, 0); /* #542c00 */
-  --color-tertiary: rgb(255, 207, 153); /* #ffcf99 */
-  --color-success: rgb(156, 255, 153); /* #9cff99 */
-  --color-danger: rgb(255, 153, 153); /* #ff9999 */
-  --color-warning: rgb(153, 124, 92); /* #997c5c */
-  --color-info: rgb(218, 241, 255); /* #daf1ff */
-  --color-light: rgb(244, 234, 223); /* #f4eadf */
-  --color-lighter: rgb(249, 244, 239); /* #f9f4ef */
-  --color-grey: rgb(74, 74, 74);
-  --color-dark: rgb(43, 23, 0); /* #2b1700 */
-  --color-darker: rgb(32, 17, 0); /* #201100 */
-  --color-darkest: rgb(13, 13, 13); /* #0D0D0D */
-  --color-bg-custom-black: #0d0d0d;
-
-  /* Font Families */
-  --font-caveat: "Caveat", cursive;
-  --font-ibm: "IBM Plex Mono", monospace;
-  --font-sans: 'Atkinson, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"';
-  --font-mono: '"Roboto Mono", "Liberation Mono", "Courier New", monospace';
-
-  /* Font Sizes */
-  --font-size-h1: 2rem;
-  --font-size-h2: 1.75rem;
-  --font-size-h3: 1.5rem;
-  --font-size-h4: 1.25rem;
-  --font-size-h5: 1.125rem;
-  --font-size-h6: 1rem;
-  --font-size-base: 1.25rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.26rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 1.75rem;
-  --font-size-4xl: 2rem;
-  --font-size-5xl: 2.5rem;
-  --font-size-6xl: 3rem;
-
-  /* Line Heights */
-  --line-height-none: 1;
-  --line-height-tight: 1.25;
-  --line-height-snug: 1.375;
-  --line-height-normal: 1.5;
-  --line-height-relaxed: 1.625;
-  --line-height-loose: 2;
-
-  /* Box Shadows */
-  --box-shadow-custom: 4.5px 5px 8px 0.5px rgba(13, 13, 13, 0.5);
-  /* END OF CUSTOM VARIABLES */
-}
 @font-face {
   font-family: "Atkinson";
   src: url("/fonts/atkinson-regular.woff") format("woff");
@@ -107,6 +44,69 @@
   font-style: bold;
 }
 /* END OF CUSTOM FONTS */
+
+:root {
+  --accent: #2337ff;
+  --accent-dark: #000d8a;
+  --black: 15, 18, 25;
+  --gray: 96, 115, 159;
+  --gray-light: 229, 233, 240;
+  --gray-dark: 34, 41, 57;
+  --gray-gradient: rgba(var(--gray-light), 50%), #fff;
+  --box-shadow: 0 2px 6px rgba(var(--gray), 25%),
+    0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%);
+
+  /* CUSTOM VARIABLES*/
+  /* Colors */
+  --color-primary: rgb(246, 230, 213); /* #f6e6d5 */
+  --color-secondary: rgb(84, 44, 0); /* #542c00 */
+  --color-tertiary: rgb(255, 207, 153); /* #ffcf99 */
+  --color-success: rgb(156, 255, 153); /* #9cff99 */
+  --color-danger: rgb(255, 153, 153); /* #ff9999 */
+  --color-warning: rgb(153, 124, 92); /* #997c5c */
+  --color-info: rgb(218, 241, 255); /* #daf1ff */
+  --color-light: rgb(244, 234, 223); /* #f4eadf */
+  --color-lighter: rgb(249, 244, 239); /* #f9f4ef */
+  --color-grey: rgb(74, 74, 74);
+  --color-dark: rgb(43, 23, 0); /* #2b1700 */
+  --color-darker: rgb(32, 17, 0); /* #201100 */
+  --color-darkest: rgb(13, 13, 13); /* #0D0D0D */
+  --color-bg-custom-black: #0d0d0d;
+
+  /* Font Families */
+  --font-caveat: "Caveat", cursive;
+  --font-ibm: "IBM Plex Mono", monospace;
+  --font-sans: 'Atkinson, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"';
+  --font-mono: '"Roboto Mono", "Liberation Mono", "Courier New", monospace';
+
+  /* Font Sizes */
+  --text-size-h1: 2rem;
+  --text-size-h2: 1.75rem;
+  --text-size-h3: 1.5rem;
+  --text-size-h4: 1.25rem;
+  --text-size-h5: 1.125rem;
+  --text-size-h6: 1rem;
+  --text-size-base: 1.25rem;
+  --text-size-lg: 1.125rem;
+  --text-size-xl: 1.26rem;
+  --text-size-2xl: 1.5rem;
+  --text-size-3xl: 1.75rem;
+  --text-size-4xl: 2rem;
+  --text-size-5xl: 2.5rem;
+  --text-size-6xl: 3rem;
+
+  /* Line Heights */
+  --line-height-none: 1;
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+
+  /* Box Shadows */
+  --box-shadow-custom: 4.5px 5px 8px 0.5px rgba(13, 13, 13, 0.5);
+  /* END OF CUSTOM VARIABLES */
+}
 
 body {
   font-family: "Atkinson", sans-serif;
