@@ -10,7 +10,7 @@ const isActive = href === pathname || href === "/" + (subpath?.[0] || "");
 ---
 
 <a
-  class="text-dark font-ibm"
+  class="text-dark font-caveat text-xl uppercase tracking-wider"
   href={href}
   class:list={[className, { active: isActive }]}
   {...props}
@@ -28,6 +28,6 @@ const isActive = href === pathname || href === "/" + (subpath?.[0] || "");
     background-image: url(/public/images/box.svg);
     background-size: cover;
     background-repeat: no-repeat;
-    border-bottom: 2px solid var(--color-dark);
+    /* border-bottom: 1px solid var(--color-dark); */
   }
 </style>
