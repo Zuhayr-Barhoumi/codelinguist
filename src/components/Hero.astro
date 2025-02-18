@@ -1,0 +1,134 @@
+---
+// src/components/HeroSection.astro
+const {
+  title = "Coding Insights and Learning Resources",
+  heroImage = "/public/images/modern_bg.jpeg",
+  setHeight = false,
+} = Astro.props;
+---
+
+<section
+  class={`font-caveat relative text-center py-20 flex items-center justify-center ${
+    setHeight ? "customHeight" : ""
+  }`}
+>
+  <!-- Background Overlays -->
+  <div
+    class="top-pane bg-lighter absolute inset-0 pointer-events-none h-[10vh] z-11 opacity-20"
+  >
+  </div>
+  <div class="bg-tertiary absolute inset-0 pointer-events-none"></div>
+
+  <!-- Background Images -->
+  <img
+    src="/public/images/curtains.jpg"
+    alt="stylistic colors hero image"
+    class="absolute inset-0 w-full h-full object-cover opacity-15"
+  />
+  <!-- Main Hero Image -->
+  <img
+    src={heroImage}
+    alt="hero"
+    class="absolute inset-0 w-full h-full object-cover filter brightness-75 hue-rotate-15 saturate-150 opacity-50"
+  />
+
+  <!-- Content -->
+  <div
+    class="glass relative z-10 md:space-y-4 bg-lighter bg-opacity-10 p-4 lg:p-8 border-tertiary rounded-md"
+  >
+    <!-- Heading -->
+    <h1
+      class="glitch relative text-4xl sm:text-5xl md:text-6xl font-bold text-lighter"
+      data-glitch={title}
+    >
+      {title}
+    </h1>
+    <h2 class="text-base sm:text-h3 md:text-h2 font-bold my-2 text-grey">
+      Your Source of Expert Coding Insights
+    </h2>
+    <div>
+      <!-- Call-to-Action Button -->
+      <!-- <slot name="button" /> -->
+      <div class="flex flex-row gap-2 mt-6 justify-center flex-wrap">
+        <a
+          href="/blog"
+          class="inline-block bg-dark text-white px-8 py-2.5 2xl:py-4 rounded-md text-md md:text-xl tracking-wider uppercase hover:text-light hover:bg-opacity-60 transition duration-300 ease-in-out decoration-none"
+        >
+          Start Reading
+        </a>
+        <a
+          href="/"
+          class="inline-block bg-transparent text-light px-8 py-2.5 2xl:py-4 rounded-md text-md md:text-xl tracking-wider uppercase hover:bg-light hover:text-darkest transition-all duration-300 ease-in-out border-2 border-light decoration-none"
+        >
+          Subscribe
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style scoped>
+  .customHeight {
+    height: 55vh;
+  }
+  .glass {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+
+  .glitch {
+    display: block;
+    background: transparent;
+    z-index: 1;
+  }
+
+  .glitch:before,
+  .glitch:after {
+    display: block;
+    content: attr(data-glitch);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+    color: orangered;
+  }
+  .glitch:before {
+    animation: glitch-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both
+      infinite;
+    color: #9cff99;
+    z-index: -1;
+  }
+
+  .glitch:after {
+    animation: glitch-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse
+      both infinite;
+    color: #ff9999;
+    z-index: -2;
+  }
+
+  @keyframes glitch-color {
+    0% {
+      transform: translate(0);
+    }
+
+    20% {
+      transform: translate(-3px, 3px);
+    }
+
+    40% {
+      transform: translate(-3px, -3px);
+    }
+
+    60% {
+      transform: translate(3px, 3px);
+    }
+
+    80% {
+      transform: translate(3px, -3px);
+    }
+
+    to {
+      transform: translate(0);
+    }
+  }
+</style>
