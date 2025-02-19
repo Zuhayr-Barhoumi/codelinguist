@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+).slice(0, 3);
 
 const randomIndex = () =>{
     return Math.floor(Math.random() * 7) + 1;
@@ -15,7 +15,7 @@ const randomIndex = () =>{
 posts.map((post) => (
     <div
         class="mh-60 md:h-80 w-80 bg-lighter backdrop-blur-md flex flex-col justify-between p-2 font-caveat relative"
-        style={`border-image: url("/public/images/borders_square_1.png") 1 fill; border-width: "1px"; border-repeat: "round";`}
+        style={`border-image: url("/images/borders_square_${randomIndex()}.png") 10 fill; border-width: 1px; border-style: solid;`}
     >
         <!-- Background Image -->
         <div
@@ -28,7 +28,7 @@ posts.map((post) => (
         <div class="h-4 bg-white"></div>
 
         <!-- Content -->
-        <div class="relative z-10 p-4 flex flex-col h-full justify-center">
+        <div class="relative z-100 p-4 flex flex-col h-full justify-center">
         <!-- Title (h3) -->
         <h3 class="font-sans text-h3 md:text-2xl 2xl:text-3xl font-bold mb-2">
             {post.data.title}
@@ -52,11 +52,17 @@ posts.map((post) => (
 
         <!-- Footer -->
         <div
-        class="relative z-10 flex justify-between items-center text-dark p-2 mt-4 bg-light text-base"
+        class="relative z-1 flex justify-between items-center text-dark p-2 mt-4 bg-light text-base"
         >
-        <span>{post.data.tags && Array.isArray(post.data.tags) ? post.data.tags.join(" | ") : ""}</span>
+        <span>{post.data.tags && Array.isArray(post.data.tags) ? post.data.tags.slice(0, 2).join(" | ") : ""}</span>
         <span>{post.data.pubDate.toDateString()}</span>
         </div>
     </div>
     ))
 }
+
+<style>
+    div{
+        box-sizing: border-box;
+    }
+</style>
