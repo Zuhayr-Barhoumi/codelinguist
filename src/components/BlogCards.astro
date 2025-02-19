@@ -1,0 +1,62 @@
+---
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const randomIndex = () =>{
+    return Math.floor(Math.random() * 7) + 1;
+}
+
+---
+
+{
+posts.map((post) => (
+    <div
+        class="mh-60 md:h-80 w-80 bg-lighter backdrop-blur-md flex flex-col justify-between p-2 font-caveat relative"
+        style={`border-image: url("/public/images/borders_square_1.png") 1 fill; border-width: "1px"; border-repeat: "round";`}
+    >
+        <!-- Background Image -->
+        <div
+        class="absolute top-0 left-0 h-full w-full bg-cover bg-center opacity-12"
+        style={`background-image: url('${post.data.heroImage}')`}
+        >
+        </div>
+
+        <!-- Header -->
+        <div class="h-4 bg-white"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 p-4 flex flex-col h-full justify-center">
+        <!-- Title (h3) -->
+        <h3 class="font-sans text-h3 md:text-2xl 2xl:text-3xl font-bold mb-2">
+            {post.data.title}
+        </h3>
+
+        <!-- Excerpt (p) -->
+        <p class="text-base md:text-lg lg:text-xl text-grey mb-4 text-justify">
+            {post.data.description}
+        </p>
+
+        <!-- Read More Button -->
+        <div class="flex justify-end">
+            <a
+            href={`/blog/${post.id}`}
+            class="font-sans text-darkest bg-tertiary px-4 py-2 rounded-sm cursor-pointer text-base md:text-lg 2xl:text-xl"
+            >
+            Read more
+            </a>
+        </div>
+        </div>
+
+        <!-- Footer -->
+        <div
+        class="relative z-10 flex justify-between items-center text-dark p-2 mt-4 bg-light text-base"
+        >
+        <span>{post.data.tags && Array.isArray(post.data.tags) ? post.data.tags.join(" | ") : ""}</span>
+        <span>{post.data.pubDate.toDateString()}</span>
+        </div>
+    </div>
+    ))
+}
