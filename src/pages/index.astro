@@ -2,6 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
+import ContentSection from "../components/ContentSection.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
@@ -14,6 +15,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   <body>
     <Header />
     <Hero setHeight="true" />
+    <ContentSection title="Featured Posts">
+      <div slot="content">Here's some dummy content</div>
+    </ContentSection>
     <main>
       <h1>🧑‍🚀 Hello, Astronaut!</h1>
       <p>
