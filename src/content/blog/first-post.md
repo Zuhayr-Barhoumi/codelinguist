@@ -2,7 +2,7 @@
 title: 'First post'
 description: 'Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astrojs'
 pubDate: 'Mar 30 2025'
-heroImage: '/public/images/blog-post-1.jpg'
+heroImage: '/images/blog-post-1.jpg'
 author: 'John Doe'
 tags: ['webdev', 'js']
 draft: false
