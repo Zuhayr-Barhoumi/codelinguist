@@ -13,38 +13,38 @@ const randomIndex = () =>{
 {
 projects.map((proj) => (
 // style={`border-image: url("/images/borders_square_${randomIndex()}.png") 10 fill; border-width: 1px; border-style: solid;`}
-  <a href={`/projects/${proj.id}`} class="decoration-none max-w-80 h-80 bg-lighter border-solid border-2 border-darker text-center py-2 hover:shadow-custom hover:scale-102 transition-all duration-300 ease-in-out" >
+  <a href={`/projects/${proj.id}`} class="font-caveat decoration-none" >
+    <div class="max-w-80 h-80 bg-lighter border-solid border-2 border-darker text-center pt-2 hover:shadow-custom hover:scale-102 transition-all duration-300 ease-in-out" >
           <!-- Title -->
-          <h3 class="text-h3 md:text-2xl 2xl:text-3xl font-bold mb-2">
+          <h3 class="text-h3 md:text-2xl 2xl:text-3xl font-bold mb-4">
             { proj.data.title }
           </h3>
 
           <!-- Image -->
           <div class="w-full bg-tertiary/60 relative">
             <div
-              class="w-full h-full bg-cover bg-center absolute top-0 left-0 opacity-15"
+              class="w-full h-full bg-cover absolute top-0 left-0 opacity-15"
               style={`background-image: url('/images/curtains.jpg')`}
 
             ></div>
             <img
               src={`${proj.data.heroImage}`}
-              class="w-full h-full opacity-60 filter saturate-140"
+              class="w-full h-full block opacity-60 filter saturate-140"
               alt="Project Image"
             />
           </div>
 
           <!-- Summary (p) -->
           <div>
-              <p class="text-base md:text-lg lg:text-xl text-grey py-2 font-caveat">
-                  {proj.data.description.length < 36? proj.data.description : proj.data.description.slice(0, 35) + '[...]'}
+              <p class="h-full text-base md:text-lg lg:text-xl text-grey font-caveat m-0 py-2">
+                  {proj.data.description.length < 51? proj.data.description : proj.data.description.slice(0, 51) + '[...]'}
               </p>
           </div>
+    </div>
   </a>
 ))
 }
 
 <style>
-    div{
-        box-sizing: border-box;
-    }
+
 </style>

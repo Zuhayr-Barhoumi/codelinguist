@@ -18,14 +18,15 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   <body>
     <Header />
     <Hero setHeight="true" />
-    <div class="h-1 bg-darkest"></div>
+    <div class="h-1 mx-auto bg-darkest"></div>
     <ContentSection title="Featured Posts">
       <BlogCards slot={"content"} />
     </ContentSection>
-    <div class="h-1 bg-darkest"></div>
+    <div class="h-1 max-w-5xl mx-auto bg-darkest"></div>
     <ContentSection title="Projects">
       <ProjectCards slot={"content"} />
     </ContentSection>
+    <div class="h-1 max-w-5xl mx-auto bg-darkest mb-10"></div>
     <Mission />
     <Footer />
   </body>
