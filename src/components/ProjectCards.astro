@@ -1,63 +1,46 @@
 ---
 import { getCollection } from "astro:content";
 
-const posts = (await getCollection("project")).sort(
+const projects = (await getCollection("project")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-).slice(0, 3);
-console.log("opst", posts);
+).filter(item => !item.data.draft).slice(0, 3);
+
 const randomIndex = () =>{
     return Math.floor(Math.random() * 7) + 1;
 }
 ---
 
 {
-posts.map((post) => (
-    <div
-        class="mh-60 md:h-80 w-80 bg-lighter backdrop-blur-md flex flex-col justify-between p-2 font-caveat relative"
-        style={`border-image: url("/images/borders_square_${randomIndex()}.png") 10 fill; border-width: 1px; border-style: solid;`}
-    >
-        <!-- Background Image -->
-        <div
-        class="absolute top-0 left-0 h-full w-full bg-cover bg-center opacity-12"
-        style={`background-image: url('${post.data.heroImage}')`}
-        >
-        </div>
+projects.map((proj) => (
+// style={`border-image: url("/images/borders_square_${randomIndex()}.png") 10 fill; border-width: 1px; border-style: solid;`}
+  <a href={`/projects/${proj.id}`} class="decoration-none max-w-80 h-80 bg-lighter border-solid border-2 border-darker text-center py-2 hover:shadow-custom hover:scale-102 transition-all duration-300 ease-in-out" >
+          <!-- Title -->
+          <h3 class="text-h3 md:text-2xl 2xl:text-3xl font-bold mb-2">
+            { proj.data.title }
+          </h3>
 
-        <!-- Header -->
-        <div class="h-4 bg-white"></div>
+          <!-- Image -->
+          <div class="w-full bg-tertiary/60 relative">
+            <div
+              class="w-full h-full bg-cover bg-center absolute top-0 left-0 opacity-15"
+              style={`background-image: url('/images/curtains.jpg')`}
 
-        <!-- Content -->
-        <div class="relative z-100 p-4 flex flex-col h-full justify-center">
-        <!-- Title (h3) -->
-        <h3 class="font-sans text-h3 md:text-2xl 2xl:text-3xl font-bold mb-2">
-            {post.data.title}
-        </h3>
+            ></div>
+            <img
+              src={`${proj.data.heroImage}`}
+              class="w-full h-full opacity-60 filter saturate-140"
+              alt="Project Image"
+            />
+          </div>
 
-        <!-- Excerpt (p) -->
-        <p class="text-base md:text-lg lg:text-2xl text-grey mb-4 text-justify">
-            {post.data.description.length < 100? post.data.description : post.data.description.slice(0, 100) + '[...]'}
-        </p>
-
-        <!-- Read More Button -->
-        <div class="flex justify-end">
-            <a
-            href={`/project/${post.id}`}
-            class="font-sans text-darkest bg-tertiary px-4 py-2 rounded-sm cursor-pointer text-base md:text-lg 2xl:text-xl decoration-none hover:text-darker decoration-offset-4 hover:decoration-underline"
-            >
-            Read more
-            </a>
-        </div>
-        </div>
-
-        <!-- Footer -->
-        <div
-        class="relative z-1 flex justify-between items-center text-dark p-2 mt-4 bg-light text-base"
-        >
-        <span>{post.data.tags && Array.isArray(post.data.tags) ? post.data.tags.slice(0, 2).join(" | ") : ""}</span>
-        <span>{post.data.pubDate.toDateString()}</span>
-        </div>
-    </div>
-    ))
+          <!-- Summary (p) -->
+          <div>
+              <p class="text-base md:text-lg lg:text-xl text-grey py-2 font-caveat">
+                  {proj.data.description.length < 36? proj.data.description : proj.data.description.slice(0, 35) + '[...]'}
+              </p>
+          </div>
+  </a>
+))
 }
 
 <style>

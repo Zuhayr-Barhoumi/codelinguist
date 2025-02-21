@@ -158,7 +158,7 @@ b {
   font-weight: 700;
 }
 a {
-  color: var(--accent);
+  color: var(--color-warning);
 }
 a:hover {
   color: var(--color-warning);

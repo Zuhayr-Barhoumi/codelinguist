@@ -1,6 +1,6 @@
 ---
 title: 'Third post'
-description: 'Lorem ipsum dolor sit amet'
+description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'
 pubDate: 'Jul 22 2022'
 heroImage: '/blog-placeholder-2.jpg'
 author: 'John Doe'
