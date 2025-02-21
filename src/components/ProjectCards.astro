@@ -4,11 +4,10 @@ import { getCollection } from "astro:content";
 const posts = (await getCollection("project")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 ).slice(0, 3);
-
+console.log("opst", posts);
 const randomIndex = () =>{
     return Math.floor(Math.random() * 7) + 1;
 }
-
 ---
 
 {
@@ -42,7 +41,7 @@ posts.map((post) => (
         <!-- Read More Button -->
         <div class="flex justify-end">
             <a
-            href={`/blog/${post.id}`}
+            href={`/project/${post.id}`}
             class="font-sans text-darkest bg-tertiary px-4 py-2 rounded-sm cursor-pointer text-base md:text-lg 2xl:text-xl decoration-none hover:text-darker decoration-offset-4 hover:decoration-underline"
             >
             Read more
