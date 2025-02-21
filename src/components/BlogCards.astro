@@ -1,7 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 
-const posts = (await getCollection("blog")).sort(
+const {type = "blog"} = Astro.props;
+
+const posts = (await getCollection(type)).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 ).slice(0, 3);
 
