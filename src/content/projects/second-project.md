@@ -1,7 +1,7 @@
 ---
 title: 'Project 2'
 description: "This is a short summary description of the project."
-pubDate: 'Mar 30 2025'
+pubDate: 'April 01 2025'
 heroImage: '/images/next-gen-project.jpg'
 author: 'John Doe'
 tags: ['webdev', 'js']

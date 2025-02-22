@@ -6,7 +6,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 
-const posts = (await getCollection("blog")).sort(
+const projects = (await getCollection("project")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
@@ -19,74 +19,51 @@ const posts = (await getCollection("blog")).sort(
       main {
         width: 960px;
       }
-      ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-      }
-      ul li {
-        width: calc(50% - 1rem);
-      }
-      ul li * {
-        text-decoration: none;
-        transition: 0.2s ease;
-      }
-      ul li:first-child {
+      .first_porj {
         width: 100%;
         margin-bottom: 1rem;
         text-align: center;
       }
-      ul li:first-child img {
+      .first_porj:hover h4 {
+        color: rgb(153, 124, 92) !important;
+      }
+      .first_porj img {
         width: 100%;
-        height: 360px;
+        max-height: 360px;
+        object-fit: cover;
+        margin: 0 auto;
+        border-radius: 8px;
       }
-      ul li:first-child .title {
-        font-size: 2.369rem;
-      }
-      ul li img {
-        margin-bottom: 0.5rem;
-        border-radius: 12px;
-      }
-      ul li a {
-        display: block;
-      }
-      .title {
+      ul {
+        /* display: flex;
+        flex-wrap: wrap; */
+        /* gap: 2rem; */
+        text-align: center;
+        list-style-type: none;
         margin: 0;
-        color: rgb(var(--black));
-        line-height: 1;
+        padding: 0;
+        gap: 0;
+        columns: 300px;
       }
-      .date {
-        margin: 0;
-        color: rgb(var(--gray));
+      li:first-child {
+        height: 100%;
+        width: 100%;
+        display: none;
       }
-      ul li a:hover h4,
-      ul li a:hover .date {
-        color: rgb(var(--accent));
+      li {
+        margin: 0 auto;
       }
-      ul a:hover img {
-        box-shadow: var(--box-shadow);
+      li:hover h4 {
+        color: var(--color-dark) !important;
       }
-      /* .hero {
-        width: 720px;
-        height: 360px;
-      } */
-      @media (max-width: 720px) {
-        ul {
-          gap: 0.5em;
-        }
-        ul li {
-          width: 100%;
-          text-align: center;
-        }
-        ul li:first-child {
-          margin-bottom: 0;
-        }
-        ul li:first-child .title {
-          font-size: 1.563em;
-        }
+      li img {
+        width: 100%;
+        /* max-height: 360px;
+        object-fit: cover; */
+        /* margin-bottom: 0.5rem; */
+      }
+      ul li div {
+        background: rgba(218, 241, 255, 0.5);
       }
     </style>
   </head>
@@ -94,21 +71,35 @@ const posts = (await getCollection("blog")).sort(
     <Header />
     <main>
       <section>
+        <div class="first_porj">
+          <a
+            class="inline-block relative decoration-none"
+            href={`/projects/${projects[0].id}/`}
+          >
+            <img src={projects[0].data.heroImage} alt="" />
+            <h4 class="title font-caveat mb-0 pb-0 text-5xl">
+              {projects[0].data.title}
+            </h4>
+            <p class="font-mono text-sm lg:text-md m-0">
+              <FormattedDate date={projects[0].data.pubDate} />
+            </p>
+          </a>
+        </div>
         <ul>
           {
-            posts.map((post) => (
+            projects.map((project) => (
               <li>
-                <a href={`/blog/${post.id}/`}>
-                  <img
-                    width={720}
-                    height={360}
-                    src={post.data.heroImage}
-                    alt=""
-                  />
-                  <h4 class="title font-caveat">{post.data.title}</h4>
-                  <p class="date font-mono text-sm lg:text-md">
-                    <FormattedDate date={post.data.pubDate} />
-                  </p>
+                <a
+                  class="inline-block relative"
+                  href={`/projects/${project.id}/`}
+                >
+                  <img src={project.data.heroImage} alt="" />
+                  <div class="absolute block top-[50%] left-[50%] font-caveat -translate-[50%] px-4 py-1 rounded-sm">
+                    <h4>{project.data.title}</h4>
+                    <p class="date font-mono text-sm lg:text-md text-dark">
+                      <FormattedDate date={project.data.pubDate} />
+                    </p>
+                  </div>
                 </a>
               </li>
             ))

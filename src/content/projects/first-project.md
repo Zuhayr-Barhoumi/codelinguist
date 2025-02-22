@@ -1,7 +1,7 @@
 ---
 title: 'Project 1'
 description: "This is a description of project lorem ipsum dolor"
-pubDate: 'Mar 30 2025'
+pubDate: 'Apr 02 2025'
 heroImage: '/images/angular-project.jpg'
 author: 'John Doe'
 tags: ['webdev', 'ts']

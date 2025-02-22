@@ -158,7 +158,7 @@ b {
   font-weight: 700;
 }
 time {
-  color: var(--color-warning);
+  color: var(--color-dark);
 }
 a {
   color: var(--color-warning);
