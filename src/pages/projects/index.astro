@@ -65,6 +65,23 @@ const projects = (await getCollection("project")).sort(
       ul li div {
         background: rgba(218, 241, 255, 0.5);
       }
+      /* Hover effects */
+      ul li *,
+      .first_porj a * {
+        text-decoration: none;
+        transition: 0.2s ease;
+      }
+      a:hover h4,
+      a:hover .date {
+        color: rgb(var(--accent));
+      }
+      a:hover img {
+        box-shadow: var(--box-shadow);
+        transform: translate(-4px, -2px);
+      }
+      a:hover div {
+        transform: scale(-1%);
+      }
     </style>
   </head>
   <body>
