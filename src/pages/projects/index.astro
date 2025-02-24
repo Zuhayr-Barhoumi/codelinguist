@@ -19,6 +19,15 @@ const projects = (await getCollection("project")).sort(
       main {
         width: 960px;
       }
+      #overlay {
+        z-index: 100;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(255, 207, 153, 0.1);
+      }
       .first_porj {
         width: 100%;
         margin-bottom: 1rem;
@@ -26,11 +35,9 @@ const projects = (await getCollection("project")).sort(
         position: relative;
         min-height: 360px; /* Match image height */
       }
-
       .first_porj:hover h4 {
         color: rgb(153, 124, 92) !important;
       }
-
       .first_porj a {
         display: block;
         height: 360px;
@@ -119,6 +126,7 @@ const projects = (await getCollection("project")).sort(
             href={`/projects/${projects[0].id}/`}
             style={{ backgroundImage: `url(${projects[0].data.heroImage})` }}
           >
+            <div id="overlay"></div>
             <div
               class="absolute block top-[50%] left-[50%] font-caveat -translate-[50%] px-4 py-1 rounded-sm"
             >
@@ -139,6 +147,7 @@ const projects = (await getCollection("project")).sort(
                   class="inline-block relative"
                   href={`/projects/${project.id}/`}
                 >
+                  <div id="overlay" />
                   <img src={project.data.heroImage} alt="" />
                   <div class="absolute block top-[50%] left-[50%] font-caveat -translate-[50%] px-4 py-1 rounded-sm">
                     <h4>{project.data.title}</h4>
